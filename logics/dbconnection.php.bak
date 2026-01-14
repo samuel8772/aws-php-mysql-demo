@@ -1,0 +1,19 @@
+<?php
+// AWS RDS MySQL connection details
+$server   = "samuel-mysql.cxcdwsiglhfk.eu-west-1.rds.amazonaws.com"; // RDS endpoint
+$username = "admin";       // Your RDS username
+$password = "2005samuel";  // Your RDS password
+$database = "student";     // Database name
+
+// Create connection
+$conn = mysqli_connect($server, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully\n";
+?>
+
+

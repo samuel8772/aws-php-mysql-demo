@@ -105,7 +105,4 @@ Make sure AWS RDS security group allows your IP.
 
 License
 
-Open-source and free to use.
-
-
-Now it’s **one full block**, exactly like you wanted.
+Open-source and free to use

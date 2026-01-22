@@ -15,7 +15,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
     $conn = mysqli_connect($server, $username, $password, $database);
-    echo "Connected successfully to MySQL database.\n";
+    
 } catch (mysqli_sql_exception $e) {
     die("Connection failed: " . $e->getMessage() . "\n");
 }

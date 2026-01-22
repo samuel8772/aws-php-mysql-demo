@@ -1,31 +1,32 @@
 <?php
- // updating user records\
- require_once('logics/dbconnection.php');
- if(isset($_POST['updateEnrollment'] ) )
- {
-     //fetch form data
-     $fullname = $_POST['fullname'];
-     $phone = $_POST['phonenumber'];
-     $email = $_POST['email'];
-     $gender = $_POST['gender'];
-     $course = $_POST['course'];
-     //perform the sql query
+require_once 'dbconnection.php';
 
-     $updateRecords = mysqli_query($conn, 
-     "UPDATE enrollment set fullname ='$fullname',phonenumber = '$phone', 
-     email ='$email', gender='$gender',course='$course'
-     WHERE id='".$_GET['id']."' ");
+$name  = trim($_POST['name'] ?? '');
+$email = trim($_POST['email'] ?? '');
 
-     if($updateRecords)
-     {
-         $message = "Records updated successfully!";
-     }
-     else
-     {
-         $message = "Error occured while updating user.";
-     }
+if (empty($name) || empty($email)) {
+    die("Name and email are required");
+}
 
+// Prevent duplicates
+$stmt = $conn->prepare("SELECT id FROM students WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
 
- }
+if ($stmt->num_rows > 0) {
+    header("Location: ../index.php?status=duplicate");
+    exit();
+}
 
- ?>
+try {
+    $stmt = $conn->prepare("INSERT INTO students (name, email) VALUES (?, ?)");
+    $stmt->bind_param("ss", $name, $email);
+    $stmt->execute();
+
+    header("Location: ../index.php?status=success");
+    exit();
+} catch (Exception $e) {
+    die("Insert failed: " . $e->getMessage());
+}
+?>

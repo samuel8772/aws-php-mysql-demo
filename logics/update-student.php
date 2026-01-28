@@ -8,7 +8,7 @@ $name  = trim($_POST['name']);
 $email = trim($_POST['email']);
 
 $stmt = $conn->prepare(
-    "UPDATE students SET name = ?, email = ? WHERE id = ?"
+    "UPDATE enrollment SET fullname = ?, email = ? WHERE id = ?"
 );
 $stmt->bind_param("ssi", $name, $email, $id);
 $stmt->execute();

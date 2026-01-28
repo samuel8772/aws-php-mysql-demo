@@ -2,7 +2,7 @@
 $server   = "samuel-mysql.cxcdwsiglhfk.eu-west-1.rds.amazonaws.com";
 $username = "admin";
 $password = "2005samuel";
-$database = "student";
+$database = "student"; // corrected to your DB
 
 // Connect to MySQL
 $conn = mysqli_connect($server, $username, $password, $database);
@@ -33,24 +33,24 @@ if (mysqli_query($conn, $sql)) {
 
 // Insert demo records
 $insert = "INSERT INTO enrollment (fullname, gender, email, course, phonenumber) VALUES
-('Amanda Nunes','Male','anunes@ufc.com','AWS Solutions Architect','012345 678910'),
-('Alexander Volkanovski','Male','avolkanovski@ufc.com','AWS Solutions Architect','012345 678910'),
-('Khabib Nurmagomedov','Female','knurmagomedov@ufc.com','Cloud DevOps','012345 678910'),
-('Kamaru Usman','Male','kusman@ufc.com','Cloud DevOps','012345 678910'),
-('Israel Adesanya','Female','iadesanya@ufc.com','AWS Cloud Developer','012345 678910'),
-('Henry Cejudo','Female','hcejudo@ufc.com','AWS Solutions Architect','012345 678910'),
-('Valentina Shevchenko','Male','vshevchenko@ufc.com','AWS Solutions Architect','012345 678910'),
-('Tyron Woodley','Male','twoodley@ufc.com','AWS Solutions Architect','012345 678910'),
-('Rose Namajunas','Male','rnamajunas@ufc.com','AWS Cloud Developer','012345 678910'),
-('Tony Ferguson','Male','tferguson@ufc.com','AWS Cloud Developer','012345 678910'),
-('Jorge Masvidal','Female','jmasvidal@ufc.com','AWS Cloud Practitioner','012345 678910'),
-('Nate Diaz','Male','ndiaz@ufc.com','AWS Cloud Practitioner','012345 678910'),
-('Conor McGregor','Male','cmcGregor@ufc.com','AWS Solutions Architect','012345 678910'),
-('Cris Cyborg','Male','ccyborg@ufc.com','AWS Cloud Practitioner','012345 678910'),
-('Tecia Torres','Male','ttorres@ufc.com','AWS Cloud Practitioner','012345 678910'),
-('Ronda Rousey','Female','rrousey@ufc.com','AWS Cloud Practitioner','012345 678910'),
-('Holly Holm','Male','hholm@ufc.com','AWS Solutions Architect','012345 678910'),
-('Joanna Jedrzejczyk','Male','jjedrzejczyk@ufc.com','AWS Cloud Developer','012345 678910')";
+('Amanda Nunes','Male','anunes@ufc.com','AWS Solutions Architect','012345678910'),
+('Alexander Volkanovski','Male','avolkanovski@ufc.com','AWS Solutions Architect','012345678910'),
+('Khabib Nurmagomedov','Female','knurmagomedov@ufc.com','Cloud DevOps','012345678910'),
+('Kamaru Usman','Male','kusman@ufc.com','Cloud DevOps','012345678910'),
+('Israel Adesanya','Female','iadesanya@ufc.com','AWS Cloud Developer','012345678910'),
+('Henry Cejudo','Female','hcejudo@ufc.com','AWS Solutions Architect','012345678910'),
+('Valentina Shevchenko','Male','vshevchenko@ufc.com','AWS Solutions Architect','012345678910'),
+('Tyron Woodley','Male','twoodley@ufc.com','AWS Solutions Architect','012345678910'),
+('Rose Namajunas','Male','rnamajunas@ufc.com','AWS Cloud Developer','012345678910'),
+('Tony Ferguson','Male','tferguson@ufc.com','AWS Cloud Developer','012345678910'),
+('Jorge Masvidal','Female','jmasvidal@ufc.com','AWS Cloud Practitioner','012345678910'),
+('Nate Diaz','Male','ndiaz@ufc.com','AWS Cloud Practitioner','012345678910'),
+('Conor McGregor','Male','cmcGregor@ufc.com','AWS Solutions Architect','012345678910'),
+('Cris Cyborg','Male','ccyborg@ufc.com','AWS Cloud Practitioner','012345678910'),
+('Tecia Torres','Male','ttorres@ufc.com','AWS Cloud Practitioner','012345678910'),
+('Ronda Rousey','Female','rrousey@ufc.com','AWS Cloud Practitioner','012345678910'),
+('Holly Holm','Male','hholm@ufc.com','AWS Solutions Architect','012345678910'),
+('Joanna Jedrzejczyk','Male','jjedrzejczyk@ufc.com','AWS Cloud Developer','012345678910')";
 
 if (mysqli_query($conn, $insert)) {
     echo "Demo records inserted successfully\n";

@@ -1,7 +1,7 @@
 <?php
 require_once 'dbconnection.php';
 
-$result = $conn->query("SELECT id, name, email FROM students ORDER BY id DESC");
+$result = $conn->query("SELECT id, fullname, email, gender, phonenumber FROM enrollment ORDER BY id DESC");
 $data = [];
 
 while ($row = $result->fetch_assoc()) {

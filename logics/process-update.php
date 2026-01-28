@@ -9,7 +9,7 @@ if (empty($name) || empty($email)) {
 }
 
 // Prevent duplicates
-$stmt = $conn->prepare("SELECT id FROM students WHERE email = ?");
+$stmt = $conn->prepare("SELECT id FROM enrollment WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $stmt->store_result();
@@ -20,7 +20,7 @@ if ($stmt->num_rows > 0) {
 }
 
 try {
-    $stmt = $conn->prepare("INSERT INTO students (name, email) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO enrollment (name, email) VALUES (?, ?)");
     $stmt->bind_param("ss", $name, $email);
     $stmt->execute();
 
